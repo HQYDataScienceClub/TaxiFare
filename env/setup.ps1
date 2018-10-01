@@ -1,10 +1,6 @@
 
-function TaxiFare-IsRepoCreated ( $repo ) {
-    If (-Not (Test-Path $repo)) { cls; Write-Host "Error: Code was not found at $repo" }
-    Else { cd C:\codebase\sctfeng\git\scraper }
-}
 
-function TaxiFare-SetupVenv ( $repo ) {
+function SetupPythonVenv ( $path ) {
 
     # Install Virtual Environment
     If ( -Not ( Test-Path "$repo\env\venv" ) ) { python -m venv "$repo\env\venv" }
@@ -16,10 +12,8 @@ function TaxiFare-SetupVenv ( $repo ) {
     deactivate
 }
 
-# Set up
-#Try { Write-Host "Baseline - test"
-    $repo = "C:\codebase\github\HQYDataScienceClub\TaxiFare"
-    TaxiFare-IsRepoCreated -repo $repo
-    TaxiFare-SetupVenv -repo $repo
-#} Catch { Write-Host "Error with setup" }
-#Finally { Write-Host "Setup is complete" }
+
+# set up
+$repo = "C:\codebase\github\HQYDataScienceClub\TaxiFare"
+If ( Test-Path $path ) { SetupPythonVenv -path "$repo\env" }
+Else { Write-Host "Error: Code was not found at $repo" }
