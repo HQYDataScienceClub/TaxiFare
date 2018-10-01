@@ -1,9 +1,6 @@
-# README
+# whiteboard
 
 
-## Intro: Taxi Fare Prediction
-
-```Python
 # Pandas and numpy for data manipulation
 import pandas as pd
 import numpy as np
@@ -23,4 +20,3 @@ plt.rcParams['font.size'] = 18
 
 import seaborn as sns
 palette = sns.color_palette('Paired', 10)
-```
